@@ -28,15 +28,27 @@ const hours12 = function () {
 };
 hours12();
 
+//Enter key event listener
+
+const pressEnter = function (e) {
+  //Get user name
+  const user = getName.value;
+  if (e.key === "Enter") {
+    if (user.length !== 0) {
+      userName.textContent = ` ${user}.`;
+      inputName.classList.add("hidden");
+    }
+
+    //Get focus input
+    const focusValue = focusInput.value;
+    if (focusValue.length !== 0) {
+      focusMessage.textContent = focusValue;
+      focusSection.classList.add("hidden");
+    }
+  }
+};
+
 //get name from user
-btnSubmit.addEventListener("click", function () {
-  userName.textContent = ` ${getName.value}.`;
-  inputName.classList.add("hidden");
-});
-
+inputName.addEventListener("keypress", pressEnter);
 //get focus message
-
-focusBtn.addEventListener("click", function () {
-  focusMessage.textContent = focusInput.value;
-  focusSection.classList.add("hidden");
-});
+focusSection.addEventListener("keypress", pressEnter);
