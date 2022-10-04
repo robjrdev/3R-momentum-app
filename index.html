@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>3R Momentum App</title>
   </head>
   <body>
     <section class="welcome">
+      <!-- Get name on load -->
+      <div class="input-name">
+        <label for="">Enter your name:</label>
+        <input type="text" id="get-name" />
+        <button type="button" class="btn btn--name">Submit</button>
+      </div>
       <div class="current-time"></div>
-
       <!-- Should update greeting depends on current-time -->
-      <div class="greeting"></div>
-      <h3 class="focus">What is your main forcus for today?</h3>
-      <input type="text" class="focus-input" />
+      <div id="greeting">Good Morning,<span id="user-name"> </span></div>
+      <div class="focus">
+        <h3 class="focus-question">What is your main focus today?</h3>
+        <input type="text" class="focus-input" />
+        <button type="button" class="btn btn--focus">Submit</button>
+      </div>
+      <p class="focus-message"></p>
     </section>
   </body>
+  <script src="app.js"></script>
 </html>
