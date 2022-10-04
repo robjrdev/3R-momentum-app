@@ -24,9 +24,9 @@ const hours12 = function () {
     timeStyle: "short",
   });
   currentTime.textContent = time;
+  setInterval(hours12, 1000);
 };
-
-const updateTime = setInterval(hours12, 1000);
+hours12();
 
 //get name from user
 btnSubmit.addEventListener("click", function () {
