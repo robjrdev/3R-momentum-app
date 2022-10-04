@@ -15,14 +15,18 @@
         <!-- Get name on load -->
         <div class="input-name">
           <label for="">Enter your name:</label>
-          <input type="text" id="get-name" />
+          <input autocomplete="off" type="text" id="get-name" />
         </div>
         <div class="current-time"></div>
         <!-- Should update greeting depends on current-time -->
-        <div id="greeting">Good Morning,<span id="user-name"> </span></div>
+        <div class="greeting"></div>
+        <span class="greeting-am">Good Morning,</span>
+        <span class="greeting-pm">Good Afternoon,</span>
+        <span class="greeting-night">Good Evening,</span>
+        <span id="user-name"></span>
         <div class="focus">
           <h3 class="focus-question">What is your main focus today?</h3>
-          <input type="text" class="focus-input" />
+          <input autocomplete="off" type="text" class="focus-input" />
         </div>
         <p class="focus-message"></p>
       </section>
