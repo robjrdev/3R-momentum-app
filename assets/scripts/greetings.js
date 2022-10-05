@@ -2,13 +2,11 @@
 //DOM SELECTOR
 //Time
 const currentTime = document.querySelector(".current-time");
-const greetingAm = document.querySelector(".greeting-am");
-const greetingPm = document.querySelector(".greeting-pm");
-const greetingNight = document.querySelector(".greeting-night");
+const greeting = document.querySelector(".greeting");
 //User name
 const userName = document.getElementById("user-name");
 const getName = document.getElementById("get-name");
-const inputName = document.querySelector(".input-name");
+// const inputName = document.querySelector(".input-name");
 const btnSubmit = document.querySelector(".btn--name");
 
 //Focus
@@ -20,6 +18,7 @@ const focusMessage = document.querySelector(".focus-message");
 //Get time on machine
 let a;
 let time;
+
 const minuteCount = 60000;
 
 const hours12 = function () {
@@ -32,29 +31,29 @@ const hours12 = function () {
   setInterval(hours12, minuteCount);
 };
 hours12();
-const checkGreet = function () {
-  greetingAm.classList.toggle("hidden");
-  greetingPm.classList.toggle("hidden");
-  greetingNight.classList.toggle("hidden");
-};
 
 //Costumize Greeting watch time
-const timeOfDay = [a.getHours(), a.getMinutes()];
-console.log(timeOfDay);
-const costumGreeting = function () {
-  const am = time[0];
+const hours = a.getHours();
+const costumGreet = function () {
+  if (hours < 12) {
+    greeting.textContent = "Good Morning,";
+  } else if (hours < 18) {
+    greeting.textContent = "Good afternoon,";
+  } else {
+    greeting.textContent = "Good evening,";
+  }
 };
-costumGreeting();
+costumGreet();
 
 //Enter key event listener
 const pressEnter = function (e) {
   //Get user name
   const user = getName.value;
   if (e.key === "Enter") {
-    if (user.length !== 0) {
-      userName.textContent = ` ${user}.`;
-      inputName.classList.add("hidden");
-    }
+    // if (user.length !== 0) {
+    //   userName.textContent = ` ${user}.`;
+    //   inputName.classList.add("hidden");
+    // }
 
     //Get focus input
     const focusValue = focusInput.value;
@@ -66,6 +65,6 @@ const pressEnter = function (e) {
 };
 
 //get name from user
-inputName.addEventListener("keypress", pressEnter);
+// inputName.addEventListener("keypress", pressEnter);
 //get focus message
 focusSection.addEventListener("keypress", pressEnter);
