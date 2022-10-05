@@ -17,7 +17,15 @@
           <label for="">Enter your name:</label>
           <input autocomplete="off" type="text" id="get-name" />
         </div>
-        <div class="current-time"></div>
+        <div class="time">
+          <span class="current-time"></span>
+          <button class="btn btn-show--toggle">&#8230;</button>
+          <div class="switch hidden">
+            <span class="toggle">24-hour clock</span>
+            <button class="btn toggle--switch"></button>
+          </div>
+        </div>
+
         <!-- Should update greeting depends on current-time -->
         <span class="greeting"></span>
         <span id="user-name"> .</span>
