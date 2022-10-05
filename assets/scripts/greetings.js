@@ -3,6 +3,9 @@
 //Time
 const currentTime = document.querySelector(".current-time");
 const greeting = document.querySelector(".greeting");
+const showToggle = document.querySelector(".btn-show--toggle");
+const toggleFormat = document.querySelector(".switch");
+const switchToggle = document.querySelector(".toggle--switch");
 //User name
 const userName = document.getElementById("user-name");
 const getName = document.getElementById("get-name");
@@ -18,7 +21,7 @@ const focusMessage = document.querySelector(".focus-message");
 //Get time on machine
 let a;
 let time;
-const minuteCount = 60000;
+const minuteCount = 1000;
 
 const hours12 = function () {
   a = new Date();
@@ -26,10 +29,16 @@ const hours12 = function () {
     timeStyle: "short",
     hours: "numeric",
   });
-  currentTime.textContent = time;
   setInterval(hours12, minuteCount);
+  currentTime.textContent = time;
 };
+
 hours12();
+
+//Show Toggle
+showToggle.addEventListener("click", function () {
+  toggleFormat.classList.toggle("hidden");
+});
 
 //Costumize Greeting watch time
 const hours = a.getHours();
