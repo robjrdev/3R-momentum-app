@@ -1,0 +1,214 @@
+html {
+  font-size: 16px;
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.welcome {
+  max-width: 100%;
+  text-align: center;
+}
+
+.input-name {
+  position: absolute;
+  width: 90%;
+  height: 40%;
+  background: hsl(0, 3%, 16%);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.container-todo {
+  grid-area: todo;
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+/*
+===================================================================
+Todo
+===================================================================
+*/
+
+/*
+===================================================================
+Todo
+===================================================================
+*/
+.todo-popup {
+  position: absolute;
+  bottom: 2.3rem;
+  right: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.todo-popup .triangle-down {
+  margin-right: 1.3rem;
+  margin-left: auto;
+}
+
+/*container style*/
+.todo-div {
+  height: auto;
+  width: 320px;
+  color: black;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
+  padding: 18px 0;
+}
+
+/*Style Input and title*/
+.todo-input-div {
+  padding: 0 21px;
+  background: transparent;
+}
+
+.todo-input-div form {
+  display: flex;
+  background: transparent;
+}
+
+.header {
+  position: relative;
+  padding: 0 21px;
+}
+
+.todo-input {
+  width: auto;
+  height: 30px;
+  border: none;
+  flex: 1 0 auto;
+  background: transparent;
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.listItem:hover {
+  cursor: pointer;
+}
+
+#title {
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+
+.textlabel {
+  margin: 0;
+  flex: 1 0 auto;
+}
+
+.listItem {
+  margin-left: 21px;
+  margin-right: 5px;
+}
+
+.todo-list-div {
+  margin-bottom: 10px;
+  height: 150px;
+  overflow-y: auto;
+}
+
+.todo-popup {
+    position: absolute;
+    bottom: 2.3rem;
+    right: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.todo-popup .triangle-down {
+    margin-right: 1.3rem;
+    margin-left: auto;
+}
+
+/*container style*/
+.todo-div {
+    height: auto;
+    width: 320px;
+    color: black;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
+    padding: 18px 0;
+}
+
+/*Style Input and title*/
+.todo-input-div {
+    padding: 0 21px;
+    background: transparent;
+}
+
+.todo-input-div form {
+    display: flex;
+    background: transparent;
+}
+
+.header {
+    position: relative;
+    padding: 0 21px;
+}
+
+.todo-input {
+    width: auto;
+    height: 30px;
+    border: none;
+    flex: 1 0 auto;
+    background: transparent;
+}
+
+.todo-input:focus {
+    outline: none;
+}
+
+.listItem:hover {
+    cursor: pointer;
+}
+
+#title {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+.textlabel {
+    margin: 0;
+    flex: 1 0 auto;
+}
+
+.listItem {
+    margin-left: 21px;
+    margin-right: 5px;
+}
+
+.todo-list-div {
+    margin-bottom: 10px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+

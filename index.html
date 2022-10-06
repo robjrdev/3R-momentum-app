@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>3R Momentum App</title>
-  </head>
-  <body>
-    <main class="main">
-      <section class="search">search</section>
-      <section class="welcome">
-        <!-- Get name on load -->
-        <div class="input-name">
-          <label for="">Enter your name:</label>
-          <input autocomplete="off" type="text" id="get-name" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>3R Momentum App</title>
+</head>
+
+<body>
+  <main class="main">
+    <section class="search">search</section>
+    <section class="welcome">
+      <!-- Get name on load -->
+      <div class="input-name">
+        <label for="">Enter your name:</label>
+        <input autocomplete="off" type="text" id="get-name" />
+      </div>
+      <div class="current-time"></div>
+      <!-- Should update greeting depends on current-time -->
+      <div class="greeting"></div>
+      <span class="greeting-am">Good Morning,</span>
+      <span class="greeting-pm">Good Afternoon,</span>
+      <span class="greeting-night">Good Evening,</span>
+      <span id="user-name"></span>
+      <div class="focus">
+        <h3 class="focus-question">What is your main focus today?</h3>
+        <input autocomplete="off" type="text" class="focus-input" />
+      </div>
+      <p class="focus-message"></p>
+    </section>
+
+    <div class="container-todo">
+      <span class="todo-button">Todo</span>
+      <div class="todo-popup hide">
+        <div class="todo-div">
+          <div class="header">
+            <h2 id="title">My To Do List</h2>
+          </div>
+
+          <div class="todo-list-div">
+            <ul id="ul" class="todo-list"></ul>
+          </div>
+
+          <div class="todo-input-div">
+            <form onsubmit="return false" class="todo-form">
+              <input type="text" id="input" class="todo-input" placeholder="Add new task." autocomplete="off">
+              <button onclick="newToDo()" class="AddBtn" type="submit">+</button>
+            </form>
+          </div>
         </div>
-        <div class="current-time"></div>
-        <!-- Should update greeting depends on current-time -->
-        <div class="greeting"></div>
-        <span class="greeting-am">Good Morning,</span>
-        <span class="greeting-pm">Good Afternoon,</span>
-        <span class="greeting-night">Good Evening,</span>
-        <span id="user-name"></span>
-        <div class="focus">
-          <h3 class="focus-question">What is your main focus today?</h3>
-          <input autocomplete="off" type="text" class="focus-input" />
-        </div>
-        <p class="focus-message"></p>
-      </section>
-      <section>To do list</section>
-    </main>
-  </body>
-  <script src="greetings.js"></script>
+      </div>
+    </div>
+  </main>
+</body>
+<script src="greetings.js"></script>
+<script src="assets/scripts/to-do-list.js"></script>
+
 </html>
