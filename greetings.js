@@ -19,29 +19,32 @@ const focusBtn = document.querySelector(".btn--focus");
 const focusMessage = document.querySelector(".focus-message");
 
 //Get time on machine
-let a;
-let time;
-const minuteCount = 1000;
 
-const hours12 = function () {
-  a = new Date();
-  time = a.toLocaleTimeString("en-us", {
-    timeStyle: "short",
-    hours: "numeric",
+const generateTime = function () {
+  const date = new Date();
+  const timeFormat = switchToggle.checked;
+  let time;
+  time = date.toLocaleTimeString("en-US", {
+    // timeStyle: "short",
   });
-  setInterval(hours12, minuteCount);
-  currentTime.textContent = time;
+
+  if (timeFormat) {
+    time = date.toLocaleTimeString("en-US", {
+      // timeStyle: "short",
+      hour12: false,
+    });
+  }
+  currentTime.innerHTML = time;
+  console.log(timeFormat);
 };
-
-hours12();
-
+setInterval(generateTime, 1000);
 //Show Toggle
 showToggle.addEventListener("click", function () {
   toggleFormat.classList.toggle("hidden");
 });
 
 //Costumize Greeting watch time
-const hours = a.getHours();
+const hours = new Date().getHours();
 const costumGreet = function () {
   if (hours < 12) {
     greeting.textContent = "Good Morning,";
