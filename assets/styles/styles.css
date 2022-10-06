@@ -75,7 +75,7 @@ Todo
   color: black;
   background: rgba(255, 255, 255, 0.96);
   border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   padding: 18px 0;
 }
 
@@ -134,81 +134,79 @@ Todo
 }
 
 .todo-popup {
-    position: absolute;
-    bottom: 2.3rem;
-    right: 0.5rem;
-    opacity: 0;
-    transition: opacity 0.15s;
+  position: absolute;
+  bottom: 2.3rem;
+  right: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.15s;
 }
 
 .todo-popup .triangle-down {
-    margin-right: 1.3rem;
-    margin-left: auto;
+  margin-right: 1.3rem;
+  margin-left: auto;
 }
 
 /*container style*/
 .todo-div {
-    height: auto;
-    width: 320px;
-    color: black;
-    background: rgba(255, 255, 255, 0.96);
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.30);
-    padding: 18px 0;
+  height: auto;
+  width: 320px;
+  color: black;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 18px 0;
 }
 
 /*Style Input and title*/
 .todo-input-div {
-    padding: 0 21px;
-    background: transparent;
+  padding: 0 21px;
+  background: transparent;
 }
 
 .todo-input-div form {
-    display: flex;
-    background: transparent;
+  display: flex;
+  background: transparent;
 }
 
 .header {
-    position: relative;
-    padding: 0 21px;
+  position: relative;
+  padding: 0 21px;
 }
 
 .todo-input {
-    width: auto;
-    height: 30px;
-    border: none;
-    flex: 1 0 auto;
-    background: transparent;
+  width: auto;
+  height: 30px;
+  border: none;
+  flex: 1 0 auto;
+  background: transparent;
 }
 
 .todo-input:focus {
-    outline: none;
+  outline: none;
 }
 
 .listItem:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #title {
-    font-weight: 600;
-    font-size: 1.25em;
-    margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-bottom: 10px;
 }
 
 .textlabel {
-    margin: 0;
-    flex: 1 0 auto;
+  margin: 0;
+  flex: 1 0 auto;
 }
 
 .listItem {
-    margin-left: 21px;
-    margin-right: 5px;
+  margin-left: 21px;
+  margin-right: 5px;
 }
 
 .todo-list-div {
-    margin-bottom: 10px;
-    height: 150px;
-    overflow-y: auto;
+  margin-bottom: 10px;
+  height: 150px;
+  overflow-y: auto;
 }
-
-

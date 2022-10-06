@@ -2,9 +2,10 @@
 //DOM SELECTOR
 //Time
 const currentTime = document.querySelector(".current-time");
-const greetingAm = document.querySelector(".greeting-am");
-const greetingPm = document.querySelector(".greeting-pm");
-const greetingNight = document.querySelector(".greeting-night");
+const greeting = document.querySelector(".greeting");
+const showToggle = document.querySelector(".btn-show--toggle");
+const toggleFormat = document.querySelector(".switch");
+const switchToggle = document.querySelector(".toggle--switch");
 //User name
 const userName = document.getElementById("user-name");
 const getName = document.getElementById("get-name");
@@ -18,54 +19,81 @@ const focusBtn = document.querySelector(".btn--focus");
 const focusMessage = document.querySelector(".focus-message");
 
 //Get time on machine
-let a;
 let time;
-const minuteCount = 60000;
+const generateTime = function () {
+  const date = new Date();
+  const timeFormat = switchToggle.checked;
 
-const hours12 = function () {
-  a = new Date();
-  time = a.toLocaleTimeString("en-us", {
-    timeStyle: "short",
-    hours: "numeric",
-  });
-  currentTime.textContent = time;
-  setInterval(hours12, minuteCount);
+  if (timeFormat) {
+    time = date.toLocaleTimeString("en-US", {
+      timeStyle: "short",
+      hour12: false,
+    });
+  } else {
+    time = date.toLocaleTimeString("en-US", {
+      timeStyle: "short",
+    });
+  }
+  return time;
 };
-hours12();
-const checkGreet = function () {
-  greetingAm.classList.toggle("hidden");
-  greetingPm.classList.toggle("hidden");
-  greetingNight.classList.toggle("hidden");
-};
+setInterval(generateTime, 1000);
+generateTime();
+currentTime.innerHTML = time;
+
+//Show Toggle
+showToggle.addEventListener("click", function () {
+  toggleFormat.classList.toggle("hidden");
+});
 
 //Costumize Greeting watch time
-const timeOfDay = [a.getHours(), a.getMinutes()];
-console.log(timeOfDay);
-const costumGreeting = function () {
-  const am = time[0];
+const hours = new Date().getHours();
+const costumGreet = function () {
+  if (hours < 12) {
+    greeting.textContent = "Good Morning,";
+  } else if (hours < 18) {
+    greeting.textContent = "Good afternoon,";
+  } else {
+    greeting.textContent = "Good evening,";
+  }
 };
-costumGreeting();
+costumGreet();
 
 //Enter key event listener
 const pressEnter = function (e) {
   //Get user name
-  const user = getName.value;
+
   if (e.key === "Enter") {
-    if (user.length !== 0) {
-      userName.textContent = ` ${user}.`;
+    if (getName.value.length !== 0) {
       inputName.classList.add("hidden");
+      userName.textContent = getName.value;
+      localStorage.setItem("currentUser", getName.value);
     }
 
     //Get focus input
-    const focusValue = focusInput.value;
-    if (focusValue.length !== 0) {
-      focusMessage.textContent = focusValue;
+    if (focusInput.value.length !== 0) {
+      focusMessage.textContent = focusInput.value;
       focusSection.classList.add("hidden");
+      localStorage.setItem("userFocus", focusInput.value);
     }
   }
 };
 
 //get name from user
 inputName.addEventListener("keypress", pressEnter);
+
 //get focus message
 focusSection.addEventListener("keypress", pressEnter);
+
+//Get userInput from localStorage
+const currentUser = localStorage.getItem("currentUser");
+userName.textContent = currentUser;
+const currentFocus = localStorage.getItem("userFocus");
+focusMessage.textContent = currentFocus;
+
+// Validation if user input is needed
+if (userName.textContent.length !== 0) {
+  inputName.classList.add("hidden");
+}
+if (focusMessage.textContent.length !== 0) {
+  focusSection.classList.add("hidden");
+}
