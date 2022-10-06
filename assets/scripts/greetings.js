@@ -19,24 +19,27 @@ const focusBtn = document.querySelector(".btn--focus");
 const focusMessage = document.querySelector(".focus-message");
 
 //Get time on machine
-
+let time;
 const generateTime = function () {
   const date = new Date();
   const timeFormat = switchToggle.checked;
-  let time;
-  time = date.toLocaleTimeString("en-US", {
-    timeStyle: "short",
-  });
 
   if (timeFormat) {
     time = date.toLocaleTimeString("en-US", {
       timeStyle: "short",
       hour12: false,
     });
+  } else {
+    time = date.toLocaleTimeString("en-US", {
+      timeStyle: "short",
+    });
   }
-  currentTime.innerHTML = time;
+  return time;
 };
 setInterval(generateTime, 1000);
+generateTime();
+currentTime.innerHTML = time;
+
 //Show Toggle
 showToggle.addEventListener("click", function () {
   toggleFormat.classList.toggle("hidden");
