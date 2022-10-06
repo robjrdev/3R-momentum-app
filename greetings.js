@@ -35,7 +35,6 @@ const generateTime = function () {
     });
   }
   currentTime.innerHTML = time;
-  console.log(timeFormat);
 };
 setInterval(generateTime, 1000);
 //Show Toggle
