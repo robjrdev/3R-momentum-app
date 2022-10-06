@@ -25,12 +25,12 @@ const generateTime = function () {
   const timeFormat = switchToggle.checked;
   let time;
   time = date.toLocaleTimeString("en-US", {
-    // timeStyle: "short",
+    timeStyle: "short",
   });
 
   if (timeFormat) {
     time = date.toLocaleTimeString("en-US", {
-      // timeStyle: "short",
+      timeStyle: "short",
       hour12: false,
     });
   }
