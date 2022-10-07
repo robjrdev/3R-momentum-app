@@ -53,6 +53,28 @@ function rand() {
     }
 }
 
+const addQuote = document.querySelector('#add-quote-button'),
+newQuote = document.querySelector('#new-quote'),
+getNewQuote = document.querySelector('#get-new-quote'),
+    addQuoteInput = document.querySelector('#new-quote-text')
+
+addQuote.addEventListener('click', function() {
+    newQuote.classList.toggle('display')
+})
+
+
+
+addQuoteInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        let list = document.createElement ('li')
+        list.textContent = addQuoteInput.value
+        getNewQuote.append(list)
+        console.log(list.textContent);
+        addQuoteInput.value = ''
+        onclick = quotes.push(list.textContent)
+    }
+})
+  
 
 
 setBg();
