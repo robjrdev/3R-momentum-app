@@ -16,8 +16,10 @@ const nameContainer = document.querySelector('.name-section');
 //Focus
 const focusSection = document.querySelector('.focus');
 const focusInput = document.querySelector('.focus-input');
-const focusBtn = document.querySelector('.btn--focus');
 const focusMessage = document.querySelector('.focus-message');
+const userInputFocus = document.querySelector('.user-focus-input');
+const focusBtn = document.querySelector('.edit-focus');
+const doneBtn = document.querySelector('.done-focus');
 
 //Get time
 //Live clock
@@ -88,6 +90,7 @@ const pressEnter = function (e) {
     if (focusInput.value.length !== 0) {
       focusSection.classList.add('hidden');
       focusMessage.value = focusInput.value;
+      userInputFocus.classList.remove('hidden');
       localStorage.setItem('userFocus', focusInput.value);
     }
   }
@@ -126,3 +129,24 @@ if (userName.value.length !== 0) {
 if (focusMessage.value.length !== 0) {
   focusSection.classList.add('hidden');
 }
+
+focusBtn.addEventListener('click', () => {
+  focusSection.classList.remove('hidden');
+  userInputFocus.classList.add('hidden');
+});
+
+// if (doneBtn.checked) {
+//   focusMessage.style.fontSize = '100px';
+// } else {
+//   focusMessage.style.backgroundColor = '#fff';
+// }
+// console.log(doneBtn);
+
+doneBtn.addEventListener('change', () => {
+  if (doneBtn.checked) {
+    focusMessage.style.textDecoration = 'line-through';
+  } else {
+    focusMessage.style.textDecoration = 'none';
+  }
+  console.log(doneBtn);
+});
