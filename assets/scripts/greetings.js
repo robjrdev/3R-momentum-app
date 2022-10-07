@@ -80,15 +80,14 @@ const pressEnter = function (e) {
   if (e.key === 'Enter') {
     if (getName.value.length !== 0) {
       inputName.classList.add('hidden');
-      userName.textContent = getName.value;
+      userName.value = getName.value;
       localStorage.setItem('currentUser', getName.value);
     }
 
     //Get focus input
     if (focusInput.value.length !== 0) {
       focusSection.classList.add('hidden');
-      focusMessage.textContent = focusInput.value;
-
+      focusMessage.value = focusInput.value;
       localStorage.setItem('userFocus', focusInput.value);
     }
   }
@@ -101,21 +100,29 @@ inputName.addEventListener('keypress', pressEnter);
 focusSection.addEventListener('keypress', pressEnter);
 
 //Get userInput from localStorage
-const currentUser = localStorage.getItem('currentUser');
+let currentUser = localStorage.getItem('currentUser');
 const currentFocus = localStorage.getItem('userFocus');
 
-userName.textContent = currentUser;
-focusMessage.textContent = currentFocus;
+userName.value = currentUser;
+focusMessage.value = currentFocus;
 
 // Edit Name
-nameContainer.addEventListener('dblclick', () => {
-  inputName.classList.remove('hidden');
+userName.addEventListener('keypress', e => {
+  if (e.key === 'Enter') {
+    let newName = userName.value;
+    newName = userName.value;
+    currentUser = localStorage.setItem('currentUser', newName);
+    e.preventDefault();
+    e.target.blur();
+  }
 });
 
 // Validation if user input is needed
-if (userName.textContent.length !== 0) {
+if (userName.value.length !== 0) {
   inputName.classList.add('hidden');
 }
-if (focusMessage.textContent.length !== 0) {
+
+//Edit Focus
+if (focusMessage.value.length !== 0) {
   focusSection.classList.add('hidden');
 }
