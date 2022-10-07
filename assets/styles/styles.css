@@ -210,3 +210,87 @@ Todo
   height: 150px;
   overflow-y: auto;
 }
+
+
+
+/* QUOTES */
+
+#quotes {
+  color: #fff;
+  opacity: 0.5;
+  font-size: 1.5rem;
+  position: relative;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+#random-quotes{
+  position: relative;
+  top: 20%;
+}
+
+#add-quote{
+  font-size: 1rem;
+  margin-top: 8px;
+  font-weight: 100;
+  width: 30px;
+  height: 30px;
+  color: #fff7;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+#add-quote-button {
+  z-index: 999;
+  bottom: 75%;
+  right: 48%;
+}
+
+#add-quote:hover{
+  background-color: #fff4;
+  color: black;
+}
+
+#new-quote{
+  padding: 20px;
+  position: absolute;
+  top: 72%;
+  left: -100%;
+  width: 300px;
+  height: 200px;
+  background-color: #0007;
+  transition: ease-in 0.5s;   
+}
+
+#main-new-quote{
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+}
+
+#new-quote.display {
+  left: 1%;
+  position: absolute;
+}
+
+#new-quote-text{
+  margin: 20px 5px;
+  border-bottom: 1px solid white;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: #fff6;
+}
+
+#get-new-quote {
+  list-style: none;
+  color: #fff;
+}
