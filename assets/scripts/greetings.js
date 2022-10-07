@@ -11,6 +11,7 @@ const userName = document.getElementById('user-name');
 const getName = document.getElementById('get-name');
 const inputName = document.querySelector('.input-name');
 const btnSubmit = document.querySelector('.btn--name');
+const nameContainer = document.querySelector('.name-section');
 
 //Focus
 const focusSection = document.querySelector('.focus');
@@ -18,11 +19,10 @@ const focusInput = document.querySelector('.focus-input');
 const focusBtn = document.querySelector('.btn--focus');
 const focusMessage = document.querySelector('.focus-message');
 
-//Get time on machine
+//Get time
+//Live clock
+
 let formatValue;
-
-//Switch Format
-
 const liveTime = function () {
   const d = new Date();
   let time;
@@ -32,16 +32,23 @@ const liveTime = function () {
   min = min > 9 ? min : '0' + min;
   const sec = d.getSeconds();
 
-  if (localStorage.getItem('timeFormat') === '12') {
+  if (localStorage.getItem('timeFormat') !== '12') {
     hour = hour > 12 ? hour % 12 : hour;
     time = `${hour}:${min}:${sec} ${period}`;
   } else {
     time = `${hour}:${min}:${sec}`;
   }
+
   currentTime.textContent = time;
 };
 setInterval(liveTime, 1000);
 
+//Show Toggle
+showToggle.addEventListener('click', function () {
+  toggleFormat.classList.toggle('hidden');
+});
+
+//Switch Format
 switchFormat.addEventListener('click', () => {
   formatValue = switchFormat.getAttribute('data-format');
   localStorage.setItem('timeFormat', formatValue);
@@ -51,11 +58,6 @@ switchFormat.addEventListener('click', () => {
   } else {
     switchFormat.setAttribute('data-format', '12');
   }
-});
-
-//Show Toggle
-showToggle.addEventListener('click', function () {
-  toggleFormat.classList.toggle('hidden');
 });
 
 //Costumize Greeting watch time
@@ -84,8 +86,9 @@ const pressEnter = function (e) {
 
     //Get focus input
     if (focusInput.value.length !== 0) {
-      focusMessage.textContent = focusInput.value;
       focusSection.classList.add('hidden');
+      focusMessage.textContent = focusInput.value;
+
       localStorage.setItem('userFocus', focusInput.value);
     }
   }
@@ -99,9 +102,15 @@ focusSection.addEventListener('keypress', pressEnter);
 
 //Get userInput from localStorage
 const currentUser = localStorage.getItem('currentUser');
-userName.textContent = currentUser;
 const currentFocus = localStorage.getItem('userFocus');
+
+userName.textContent = currentUser;
 focusMessage.textContent = currentFocus;
+
+// Edit Name
+nameContainer.addEventListener('dblclick', () => {
+  inputName.classList.remove('hidden');
+});
 
 // Validation if user input is needed
 if (userName.textContent.length !== 0) {
