@@ -5,7 +5,7 @@ const currentTime = document.querySelector('.current-time');
 const greeting = document.querySelector('.greeting');
 const showToggle = document.querySelector('.btn-show--toggle');
 const toggleFormat = document.querySelector('.switch');
-const switchToggle = document.querySelector('.toggle--switch');
+const switchFormat = document.querySelector('.format-switch-btn');
 //User name
 const userName = document.getElementById('user-name');
 const getName = document.getElementById('get-name');
@@ -19,26 +19,39 @@ const focusBtn = document.querySelector('.btn--focus');
 const focusMessage = document.querySelector('.focus-message');
 
 //Get time on machine
-let time;
-const generateTime = function () {
-  const date = new Date();
-  const timeFormat = switchToggle.checked;
+let formatValue;
 
-  if (timeFormat) {
-    time = date.toLocaleTimeString('en-US', {
-      timeStyle: 'short',
-      hour12: false,
-    });
+//Switch Format
+
+const liveTime = function () {
+  const d = new Date();
+  let time;
+  let hour = d.getHours();
+  const period = hour >= 12 ? 'PM' : 'AM';
+  let min = d.getMinutes();
+  min = min > 9 ? min : '0' + min;
+  const sec = d.getSeconds();
+
+  if (localStorage.getItem('timeFormat') === '12') {
+    hour = hour > 12 ? hour % 12 : hour;
+    time = `${hour}:${min}:${sec} ${period}`;
   } else {
-    time = date.toLocaleTimeString('en-US', {
-      timeStyle: 'short',
-    });
+    time = `${hour}:${min}:${sec}`;
   }
-  return time;
+  currentTime.textContent = time;
 };
-setInterval(generateTime, 1000);
-generateTime();
-currentTime.innerHTML = time;
+setInterval(liveTime, 1000);
+
+switchFormat.addEventListener('click', () => {
+  formatValue = switchFormat.getAttribute('data-format');
+  localStorage.setItem('timeFormat', formatValue);
+
+  if (formatValue === '12') {
+    switchFormat.setAttribute('data-format', '24');
+  } else {
+    switchFormat.setAttribute('data-format', '12');
+  }
+});
 
 //Show Toggle
 showToggle.addEventListener('click', function () {
