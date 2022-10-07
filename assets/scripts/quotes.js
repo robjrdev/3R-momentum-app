@@ -13,7 +13,7 @@ function setBg(){
         document.body.style.backgroundSize = "cover";
         
     } else {
-        document.body.style.backgroundImage = "url('assets/images/night.jpg')";
+        document.body.style.backgroundImage = "url('assets/images/night3.png')";
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
     }
