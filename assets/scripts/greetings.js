@@ -20,6 +20,7 @@ const focusMessage = document.querySelector('.focus-message');
 const userInputFocus = document.querySelector('.user-focus-input');
 const focusBtn = document.querySelector('.edit-focus');
 const doneBtn = document.querySelector('.done-focus');
+const randMessage = document.querySelector('.random-message');
 
 //Get time
 //Live clock
@@ -135,18 +136,23 @@ focusBtn.addEventListener('click', () => {
   userInputFocus.classList.add('hidden');
 });
 
-// if (doneBtn.checked) {
-//   focusMessage.style.fontSize = '100px';
-// } else {
-//   focusMessage.style.backgroundColor = '#fff';
-// }
-// console.log(doneBtn);
-
-doneBtn.addEventListener('change', () => {
+const randomMessage = [
+  '',
+  'Very Good',
+  "You're The Best",
+  'Great Work!',
+  'Keep Going',
+];
+const randNumber = Math.trunc(Math.random() * 4) + 1;
+doneBtn.addEventListener('click', function () {
+  localStorage.setItem('doneFocus', JSON.stringify(doneBtn.checked));
   if (doneBtn.checked) {
-    focusMessage.style.textDecoration = 'line-through';
+    console.log(doneBtn.checked + 'checkbox');
+    focusMessage.style.backgroundColor = 'red';
+    randMessage.textContent = randomMessage[randNumber];
   } else {
     focusMessage.style.textDecoration = 'none';
+    randMessage.textContent = '';
   }
-  console.log(doneBtn);
+  console.log(JSON.parse(localStorage.getItem('doneFocus')));
 });
