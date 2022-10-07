@@ -9,14 +9,14 @@
     <title>3R Momentum App</title>
   </head>
 
-  <body>
+  <body onload="checkCheckbox()">
     <main class="main">
       <section class="search">search</section>
       <section class="welcome">
         <!-- Get name on load -->
         <div class="input-name">
-          <label for="">Enter your name:</label>
-          <input autocomplete="off" type="text" id="get-name">
+          <label for="get-name">Enter your name:</label>
+          <input autocomplete="off" type="text" id="get-name" />
         </div>
         <div class="time">
           <span class="current-time"></span>
@@ -24,25 +24,29 @@
 
           <div class="switch hidden">
             <span>24hour format</span>
-            <div type="button" class="btn format-switch-btn" data-format="12">
+            <button
+              type="button"
+              class="btn format-switch-btn"
+              data-format="12"
+            >
               Switch
+            </button>
           </div>
         </div>
 
         <!-- Should update greeting depends on current-time -->
         <div class="name-section">
-         <span class="greeting"></span>
-           <input autocomplete="off" id="user-name"><span>.</span>
+          <span class="greeting"></span>
+          <input autocomplete="off" id="user-name" /><span>.</span>
         </div>
-      
 
         <div class="focus">
           <h3 class="focus-question">What is your main focus today?</h3>
-              <input autocomplete="off" type="text"         class="focus-input">
+          <input autocomplete="off" type="text" class="focus-input" />
         </div>
         <div class="user-focus-input">
-          <input type="checkbox" class="btn done-focus">
-          <input type='text'class="focus-message">
+          <input type="checkbox" class="btn done-focus" />
+          <input type="text" class="focus-message" />
           <span class="btn edit-focus">&#8230;</span>
           <span class="random-message"></span>
         </div>
@@ -78,7 +82,7 @@
         </div>
       </div>
     </main>
-    </body>
+  </body>
   <script src="assets/scripts/greetings.js"></script>
   <script src="assets/scripts/to-do-list.js"></script>
 </html>

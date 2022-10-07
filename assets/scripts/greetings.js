@@ -143,16 +143,20 @@ const randomMessage = [
   'Great Work!',
   'Keep Going',
 ];
-const randNumber = Math.trunc(Math.random() * 4) + 1;
+
 doneBtn.addEventListener('click', function () {
   localStorage.setItem('doneFocus', JSON.stringify(doneBtn.checked));
-  if (doneBtn.checked) {
-    console.log(doneBtn.checked + 'checkbox');
-    focusMessage.style.backgroundColor = 'red';
+  checkCheckbox();
+});
+
+const checkCheckbox = function () {
+  const randNumber = Math.trunc(Math.random() * 4) + 1;
+  if (JSON.parse(localStorage.getItem('doneFocus'))) {
+    doneBtn.checked = true;
+    focusMessage.style.textDecoration = 'line-through';
     randMessage.textContent = randomMessage[randNumber];
   } else {
     focusMessage.style.textDecoration = 'none';
     randMessage.textContent = '';
   }
-  console.log(JSON.parse(localStorage.getItem('doneFocus')));
-});
+};
